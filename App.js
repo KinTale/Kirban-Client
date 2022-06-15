@@ -4,12 +4,11 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Kiran and Marian</Text>
+      <Text>Kiran and Marian project</Text>
       <StatusBar style="auto" />
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
