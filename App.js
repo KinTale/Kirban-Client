@@ -1,19 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import Login from './components/login/login';
 export default function App() {
   const Stack = createNativeStackNavigator();
 
   return (
     <NavigationContainer>
-      <Stack.Navigator> 
-      <Stack.Screen
+      <Stack.Navigator>
+        
+        <Stack.Screen
           name="Home"
-          component={HomeScreen}
-          options={{ title: 'Welcome' }}
+          component={Login}
+          options={{ title: 'Kirban' }}
         />
+
         <Stack.Screen name="Profile" component={ProfileScreen} />
         {/* <View style={styles.container}>
         <Text>Kiran and Marian project</Text>
@@ -25,9 +27,7 @@ export default function App() {
     </NavigationContainer>
   );
 
-
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -43,11 +43,14 @@ const HomeScreen = ({ navigation }) => {
     <Button
       title="Go to Jane's profile"
       onPress={() =>
-        navigation.navigate('Profile', { name: 'Jane' })
+        navigation.navigate('Profile', { name: 'Jane', age: 31 })
       }
     />
   );
 };
+
 const ProfileScreen = ({ navigation, route }) => {
-  return <Text>This is {route.params.name}'s profile</Text>;
+  // console.log(navigation)
+  return <Text>This is {route.params.name}'s profile {route.params.age} </Text>;
 };
+
