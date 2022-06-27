@@ -9,43 +9,16 @@ const color = {
 }
 
 const styles = StyleSheet.create({
-
-  login: {
+  main: {
     container: {
       display: "flex",
       alignItems: "center",
       justifyItems: "center",
-      marginTop: 120,
-    },
-    form: {
-      marginTop: 5,
-      borderWidth: 1,
-      padding: 50,
-      backgroundColor: color.lightGrey
-    },
-    formText: {
-      backgroundColor: "white",
-      padding: 10,
-      marginBottom: 5,
-      marginLeft: -20,
-      marginRight: -20
-    }
-
-  },
-  landing: {
-    container: {
-      display: "flex",
-      alignItems: "center",
-      justifyItems: "center",
-      marginTop: 100
-    },
-    logo: {
-      width: 400,
-      height: 350
     },
     heading: {
       fontSize: 40
     },
+    subHeading:{},
     button: {
       display: "flex",
       alignItems: "center",
@@ -59,8 +32,29 @@ const styles = StyleSheet.create({
       shadowOffset: { width: 0, height: 3 },
       shadowOpacity: 0.2,
       shadowRadius: 3
-
     },
+  },
+  form: {
+    container: {
+      marginTop: 5,
+      borderWidth: 1,
+      padding: 50,
+      backgroundColor: color.lightGrey
+    },
+    text: {
+      backgroundColor: "white",
+      padding: 10,
+      marginBottom: 5,
+      marginLeft: -20,
+      marginRight: -20
+    }
+  },
+
+  landing: {
+    logo: {
+      width: 400,
+      height: 350
+    }
   },
 });
 
