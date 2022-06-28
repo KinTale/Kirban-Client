@@ -15,7 +15,7 @@ export default function SignUp({ navigation }) {
         password: false
     }
     const emailError = 'Enter a valid email'
-    const passwordError = 'password must be more than 8 characters!'
+    const passwordError = 'Password must be more than 8 characters'
     const validEmail = /\S+@\S+/
 
     const [signUpForm, setSignupForm] = useState(blankForm)
@@ -47,8 +47,8 @@ export default function SignUp({ navigation }) {
                     <TextInput placeholder="Email" name="email" value={signUpForm.email} textContentType='emailAddress' onChangeText={(newText) => setSignupForm({ ...signUpForm, email: newText })} />
                 </View>
                 {error.email && (
-                    <View>
-                        <Text> {emailError}</Text>
+                    <View >
+                        <Text style={styles.form.error}>{emailError}</Text>
                     </View>
                 )}
                 <View style={styles.form.text}>
@@ -56,17 +56,18 @@ export default function SignUp({ navigation }) {
                 </View>
                 {error.password && (
                     <View>
-                        <Text> {passwordError}</Text>
+                        <Text style={styles.form.error}>{passwordError}</Text>
                     </View>
                 )}
+                <View style={styles.main.container}>
                 <MainButton
                     title="Sign up"
                     styles={styles.main.button}
                     onPress={() => {
                         validation()
-                        // navigation.navigate("Login")
                     }}
                     text="Sign up" />
+                </View>
             </View>
         </View>
     )

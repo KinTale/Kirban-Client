@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   },
   form: {
     container: {
+      width: 300,
       marginTop: 5,
       borderWidth: 1,
       padding: 50,
@@ -44,6 +45,12 @@ const styles = StyleSheet.create({
     text: {
       backgroundColor: "white",
       padding: 10,
+      marginBottom: 5,
+      marginLeft: -20,
+      marginRight: -20
+    },
+    error: {
+      color: "red",
       marginBottom: 5,
       marginLeft: -20,
       marginRight: -20
