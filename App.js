@@ -1,6 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusBar } from 'react-native';
 import Login from './components/login/login';
 import SignUp from './components/login/signup'
 import Landing from './components/login/landing'
@@ -17,7 +16,7 @@ export default function App() {
       //   headerShown: false
       // }}
       >
-        {/* <StatusBar barStyle="black" /> */}
+    
         <Stack.Screen
           name="Landing"
           component={Landing}
