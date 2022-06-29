@@ -22,12 +22,20 @@ export default function SignUp({ navigation }) {
     const [error, setError] = useState(blankError)
 
     const validation = () => {
-        const validateEmail = !validEmail.test(signUpForm.email)
-        const validatePassword = signUpForm.password.length < 8
+
+        const notValidEmail = !validEmail.test(signUpForm.email)
+        const notValidPassword = signUpForm.password.length < 8
         setError({
-            email: validateEmail,
-            password: validatePassword
+            email: notValidEmail,
+            password: notValidPassword
         })
+        return notValidEmail || notValidPassword
+
+    }
+
+    const signUp = () => {
+        const isNotValidated = validation()
+        if (isNotValidated) { return }
     }
 
     return (
@@ -60,13 +68,13 @@ export default function SignUp({ navigation }) {
                     </View>
                 )}
                 <View style={styles.main.container}>
-                <MainButton
-                    title="Sign up"
-                    styles={styles.main.button}
-                    onPress={() => {
-                        validation()
-                    }}
-                    text="Sign up" />
+                    <MainButton
+                        title="Sign up"
+                        styles={styles.main.button}
+                        onPress={() => {
+                            validation()
+                        }}
+                        text="Sign up" />
                 </View>
             </View>
         </View>
