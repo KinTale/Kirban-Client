@@ -36,6 +36,10 @@ export default function SignUp({ navigation }) {
     const signUp = () => {
         const isNotValidated = validation()
         if (isNotValidated) { return }
+        fetch('/user')
+
+
+
     }
 
     return (
