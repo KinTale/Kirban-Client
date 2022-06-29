@@ -4,6 +4,7 @@ import MainButton from "../button/button.js"
 import styles from "../../style.js"
 
 export default function SignUp({ navigation }) {
+
     const blankForm = {
         firstname: "",
         lastname: "",
@@ -17,6 +18,16 @@ export default function SignUp({ navigation }) {
     const emailError = 'Enter a valid email'
     const passwordError = 'Password must be more than 8 characters'
     const validEmail = /\S+@\S+/
+    const host = process.env.API_URL
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(signUpForm)
+    }
+
+
 
     const [signUpForm, setSignupForm] = useState(blankForm)
     const [error, setError] = useState(blankError)
@@ -30,16 +41,17 @@ export default function SignUp({ navigation }) {
             password: notValidPassword
         })
         return notValidEmail || notValidPassword
-
     }
 
-    const signUp = () => {
+    const signUp = async () => {
         const isNotValidated = validation()
         if (isNotValidated) { return }
-        fetch('/user')
-
-
-
+        fetch(host + "/user", options)
+            .then(res => res.json())
+            .then(json => console.log(json))
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return (
@@ -76,7 +88,7 @@ export default function SignUp({ navigation }) {
                         title="Sign up"
                         styles={styles.main.button}
                         onPress={() => {
-                            validation()
+                            signUp()
                         }}
                         text="Sign up" />
                 </View>
