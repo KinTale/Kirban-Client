@@ -2,7 +2,6 @@ import { Text, View, TextInput } from "react-native"
 import { useState } from "react"
 import MainButton from "../button/button.js"
 import styles from "../../style.js"
-// import RNFetchBlob from "react-native-fetch-blob"
 
 export default function SignUp({ navigation }) {
 
